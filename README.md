@@ -22,6 +22,27 @@
 
 Pulse executes periodic HTTP checks against registered endpoints, evaluates configurable assertions per monitor, persists the result history, and sends alerts when a service changes state. The dashboard reflects all monitor states in real time via WebSockets.
 
+## Use Cases
+
+| ID | Use Case |
+|----|----------|
+| UC-01 | Register |
+| UC-02 | Log in |
+| UC-03 | Log out |
+| UC-04 | View global dashboard |
+| UC-05 | Create a monitor |
+| UC-06 | Edit a monitor |
+| UC-07 | Pause / resume a monitor |
+| UC-08 | Delete a monitor |
+| UC-09 | View monitor detail |
+| UC-10 | View check history |
+| UC-11 | View monitor statistics |
+| UC-12 | Configure an alert |
+| UC-13 | Edit an alert |
+| UC-14 | Delete an alert |
+| UC-15 | Receive downtime notification |
+| UC-16 | Receive recovery notification |
+
 ## Documentation
 
 | Document | Description |
