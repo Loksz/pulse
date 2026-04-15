@@ -9,9 +9,7 @@ build/
 .env
 .env.local
 .env.*.local
-
-# build cache
-dist/
+.env.production
 
 # logs
 *.log
@@ -24,3 +22,6 @@ npm-debug.log*
 # os
 .DS_Store
 Thumbs.db
+
+# vite
+*.tsbuildinfo

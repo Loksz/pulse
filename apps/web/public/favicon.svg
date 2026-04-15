@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120">
+  <defs>
+    <filter id="glow" x="-25%" y="-25%" width="150%" height="150%">
+      <feGaussianBlur stdDeviation="2.5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glow-sm" x="-15%" y="-15%" width="130%" height="130%">
+      <feGaussianBlur stdDeviation="1.5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="inner-glow" cx="28%" cy="78%" r="55%">
+      <stop offset="0%"   style="stop-color:#7c3aed;stop-opacity:0.18"/>
+      <stop offset="100%" style="stop-color:#7c3aed;stop-opacity:0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="120" height="120" rx="18" fill="#0d0a1a"/>
+  <rect width="120" height="120" rx="18" fill="url(#inner-glow)"/>
+
+  <!-- Border -->
+  <rect width="120" height="120" rx="18"
+        fill="none" stroke="#8b5cf6" stroke-width="1.6" opacity="0.88"/>
+
+  <!-- Signal arcs (origin at 30, 90) -->
+  <!-- Arc 1 - innermost -->
+  <path d="M 30,68 A 22,22 0 0 1 52,90"
+        fill="none" stroke="#8b5cf6" stroke-width="2.8"
+        stroke-linecap="round" filter="url(#glow)"/>
+
+  <!-- Arc 2 - middle -->
+  <path d="M 30,50 A 40,40 0 0 1 70,90"
+        fill="none" stroke="#8b5cf6" stroke-width="2.2"
+        stroke-linecap="round" filter="url(#glow-sm)" opacity="0.72"/>
+
+  <!-- Arc 3 - outermost -->
+  <path d="M 30,30 A 60,60 0 0 1 90,90"
+        fill="none" stroke="#8b5cf6" stroke-width="1.6"
+        stroke-linecap="round" opacity="0.4"/>
+
+  <!-- Origin dot -->
+  <circle cx="30" cy="90" r="5" fill="#8b5cf6" filter="url(#glow)"/>
+</svg>
