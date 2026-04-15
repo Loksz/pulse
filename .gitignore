@@ -10,6 +10,9 @@ build/
 .env.local
 .env.*.local
 
+# build cache
+dist/
+
 # logs
 *.log
 npm-debug.log*
