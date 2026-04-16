@@ -19,7 +19,7 @@ interface AuthState {
 
 export const useAuthStore = create<AuthState>((set) => ({
   user: null,
-  loading: false,
+  loading: true,  // true until fetchMe resolves
 
   login: async (email, password) => {
     const { data } = await api.post('/auth/login', { email, password })
@@ -50,9 +50,11 @@ export const useAuthStore = create<AuthState>((set) => ({
 
   fetchMe: async () => {
     const token = localStorage.getItem('accessToken')
-    if (!token) return
+    if (!token) {
+      set({ loading: false })
+      return
+    }
     try {
-      set({ loading: true })
       const { data } = await api.get('/users/me')
       set({ user: data })
     } catch {

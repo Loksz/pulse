@@ -1,9 +1,14 @@
+import { useEffect } from 'react'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import AuthPage from '@/pages/auth/AuthPage'
 import DashboardLayout from '@/pages/dashboard/DashboardLayout'
 import MonitorsPage from '@/pages/dashboard/MonitorsPage'
+import { useAuthStore } from '@/store/authStore'
 
 export default function App() {
+  const fetchMe = useAuthStore(s => s.fetchMe)
+  useEffect(() => { fetchMe() }, [fetchMe])
+
   return (
     <BrowserRouter>
       <Routes>

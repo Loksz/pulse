@@ -29,9 +29,11 @@ export default function AuthPage() {
     setError('')
     setLoading(true)
     try {
-      tab === 'login'
-        ? await login(email, password)
-        : await register(name, email, password)
+      if (tab === 'login') {
+        await login(email, password)
+      } else {
+        await register(name, email, password)
+      }
       navigate('/dashboard')
     } catch (err: unknown) {
       const msg = (err as { response?: { data?: { message?: string | string[] } } })

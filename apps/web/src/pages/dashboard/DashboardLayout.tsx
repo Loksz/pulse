@@ -14,18 +14,14 @@ const GLOBAL_STATUS = { ok: false, down: 1, total: 8 }
 
 export default function DashboardLayout() {
   const navigate = useNavigate()
-  const { user, loading, fetchMe, logout } = useAuthStore()
+  const { user, loading, logout } = useAuthStore()
   const [menuOpen, setMenuOpen]   = useState(false)
   const [bellOpen, setBellOpen]   = useState(false)
   const bellRef                   = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    if (!user) {
-      fetchMe().then(() => {
-        if (!useAuthStore.getState().user) navigate('/auth')
-      })
-    }
-  }, [])
+    if (!loading && !user) navigate('/auth')
+  }, [loading, user])
 
   if (loading) return <div className="dash-loading"><PulseLogo size={28} /></div>
 
@@ -115,7 +111,7 @@ export default function DashboardLayout() {
           <div className="user-menu-wrap">
             <button className="user-chip" onClick={() => setMenuOpen(o => !o)}>
               <span className="user-chip-avatar">
-                {user?.name[0].toUpperCase()}
+                {user?.name?.[0]?.toUpperCase()}
               </span>
               <span className="user-chip-name">{user?.name}</span>
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">

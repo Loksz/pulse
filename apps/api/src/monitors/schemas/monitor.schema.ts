@@ -47,7 +47,7 @@ export class Monitor {
   headers: Map<string, string>;
 
   // - optional request body (for POST/PUT/PATCH)
-  @Prop({ default: null })
+  @Prop({ type: String, default: null })
   body: string | null;
 
   @Prop({ type: [AssertionSchema], default: [] })
