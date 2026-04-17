@@ -98,6 +98,11 @@ export class MonitorsService {
     // - cascading cleanup of checks/notifications is handled by ChecksService
   }
 
+  // - internal: used by CheckerProcessor to fetch full monitor document
+  async findById(monitorId: string): Promise<MonitorDocument | null> {
+    return this.monitorModel.findById(monitorId);
+  }
+
   // - internal: used by CheckerProcessor to update status after a check
   async updateStatus(
     monitorId: string,

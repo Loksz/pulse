@@ -75,3 +75,4 @@ export const MonitorSchema = SchemaFactory.createForClass(Monitor);
 // - scheduler index: find active monitors that are due
 MonitorSchema.index({ userId: 1, active: 1 });
 MonitorSchema.index({ nextCheckAt: 1 });
+
